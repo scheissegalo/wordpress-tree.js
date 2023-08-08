@@ -15,7 +15,7 @@ function render_url_threejs_scene($atts) {
 
     ob_start(); // Start output buffering
     ?>
-    <a href="<?php echo $a['link']; ?>"> <!-- Replace with your desired URL -->
+    <a href="<?php echo $a['link']; ?>">
 		<div id="threejs-container" style="position: relative;"></div>
     </a>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -71,7 +71,7 @@ function render_url_threejs_scene($atts) {
               '<?php echo $a['model_url']; ?>',
               function (gltf) {
                 customModel = gltf.scene;
-					      customModel.scale.set(<?php echo $a['model_scale']; ?>, <?php echo $a['model_scale']; ?>, <?php echo $a['model_scale']; ?>); 
+	      	customModel.scale.set(<?php echo $a['model_scale']; ?>, <?php echo $a['model_scale']; ?>, <?php echo $a['model_scale']; ?>); 
                 scene.add(customModel);
               },
               function (xhr) {
@@ -79,7 +79,7 @@ function render_url_threejs_scene($atts) {
                 var percentLoaded = (xhr.loaded / xhr.total) * 100;
                 loadingProgress.style.width = percentLoaded + '%';
                 loadingBar.innerHTML = 'Loading... ' + Math.round(percentLoaded) + '%';
-					      loadingBar.appendChild(loadingProgress);
+	      	loadingBar.appendChild(loadingProgress);
               },
               function (error) {
                 console.error('Error loading model:', error);
@@ -106,7 +106,7 @@ function render_url_threejs_scene($atts) {
               customModel.rotation.y += <?php echo $a['rotation_speed']; ?>;
               loadingBar.style.display = 'none'; // Hide loading bar when model is loaded
           }
-			    renderer.render(scene, camera);
+    	renderer.render(scene, camera);
         }
 
         init();
